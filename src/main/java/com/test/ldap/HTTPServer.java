@@ -20,6 +20,7 @@ public class HTTPServer {
             public void handle(HttpExchange httpExchange) throws IOException {
                 try {
                     String[] value = httpExchange.getRequestURI().getQuery().split("=");
+                    System.out.println("[+] Received HTTP Query: " + httpExchange.getRequestURI().getQuery());
                     if((value[0].equals("api"))&&(value[1].length()>0)){
                         try{
                             if(strFind(value[1], new File("./tmp.txt"))){
